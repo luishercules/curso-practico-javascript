@@ -14,10 +14,30 @@ function onClickButtonPriceDiscount() {
     const inputPrice = document.getElementById("InputPrice");
     const priceValue = inputPrice.value;
 
-    const inputDiscount = document.getElementById("InputDiscount");
-    const discountValue = inputDiscount.value;
+    // const inputDiscount = document.getElementById("InputDiscount");
+    // const discountValue = inputDiscount.value;
 
-    const precioConDescuento = calcularPrecioConDescuento(priceValue, discountValue);
+    // Solución #1: arrays y switch
+    const inputCoupon = document.getElementById("InputCoupon");
+    const couponValue = inputCoupon.value;
+
+    let descuento;
+
+    switch(couponValue){
+        case "AGO2021" :
+            descuento = 15;
+            break;
+
+        case "SEPT2021":
+            descuento = 30;
+            break;
+
+        case "OCT2021":
+            descuento = 20;
+            break;
+    }
+
+    const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
 
     const resultP = document.getElementById("ResultP");
     resultP.innerText = "El precio con descuento son: $" + precioConDescuento;
